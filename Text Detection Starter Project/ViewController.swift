@@ -20,6 +20,9 @@ class ViewController: UIViewController {
     var imageLayer = AVCaptureVideoPreviewLayer();
     var markedImage: UIImage?;
     var isReadingImage = false;
+    var tesseract : G8Tesseract? = G8Tesseract(language: "eng", engineMode: .tesseractOnly);
+    // Text recognition every 10 counts to make the rendering smoother
+    var recognition_speed_controller = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,32 +73,32 @@ class ViewController: UIViewController {
                 }
                 //go through all the results of the request and transform them into VNTextObservation
                 let result = observations.map({$0 as? VNTextObservation})
+               
+                //An indicator variable to check if all detection has finished
+                let num_results = result.count
+                var indicator_v = Array(repeating: 1, count: num_results)
                 
-                //Highlight words and letters
-                DispatchQueue.main.async() {
-                    //Clean the existing word box sublayers
-                    self.view.layer.sublayers?.removeSubrange(1...)
-                    //Draw out and save each word
-                    for region in result {
-                        guard let rg = region else {
-                            continue
-                        }
-                        
-                        /*if let boxes = region?.characterBoxes {
-                         for characterBox in boxes {
-                         self.highlightLetters(box: characterBox)
-                         }
-                         }*/
-                        
-                        //highlight words and change rg (VNTextObservation) to image
-                        self.highlightandSaveWord(box: rg, entireScreen: image)
+                //Clean the existing word box sublayers
+                self.view.layer.sublayers?.removeSubrange(1...)
+                //Draw out and save each word
+                for region in result {
+                    guard let rg = region else {
+                        continue
                     }
                     
-                    //At this time, all the words detected in the image have been saved to textImages
-                    
-                    //Finished reading images. Open the access to captureOutput again.
-                    self.isReadingImage = false
+                    //highlight words and change rg (VNTextObservation) to image
+                    //Set the corresponding slot in the indicator_v to be 0
+                    self.highlightandRecognizeWord(box: rg, entireScreen: image, completion_handler: {
+                        indicator_v[result.index(of: region)!] = 0
+                    })
                 }
+                
+                //At this time, all the words detected in the image have been saved to textImages
+                
+                //Spin lock to wait until all highlightandSaveWord functions have finished
+                while(indicator_v.reduce(0,+)>0){};
+                //Finished reading images. Open the access to captureOutput again.
+                self.isReadingImage = false
                 
             }
         })
@@ -109,7 +112,8 @@ class ViewController: UIViewController {
         }
     }
     
-    func highlightandSaveWord(box: VNTextObservation, entireScreen: UIImage) {
+    func highlightandRecognizeWord(box: VNTextObservation, entireScreen: UIImage, completion_handler: @escaping (()->())) {
+        //1. Get detected regions
         guard let boxes = box.characterBoxes else {
             return
         }
@@ -133,11 +137,12 @@ class ViewController: UIViewController {
         
         let average_char_width = sum_char_width / CGFloat(counter)
         
-        let xCoord = xMin * view.frame.size.width
+        let xCoord = (xMin - CGFloat(2) * average_char_width) * view.frame.size.width
         let yCoord = (1 - yMax) * view.frame.size.height
-        let width = (xMax - xMin + CGFloat(2) * average_char_width) * view.frame.size.width
+        let width = (xMax - xMin + CGFloat(4)*average_char_width) * view.frame.size.width
         let height = (yMax - yMin) * view.frame.size.height
         
+        //2. Highlight the words
         let layer = CALayer()
         let pct = 0.1 as CGFloat
         let boundingBox = CGRect(x: xCoord, y: yCoord, width: width, height: height)
@@ -154,15 +159,47 @@ class ViewController: UIViewController {
             print("image height: " + String(describing: entireScreen.size.height) + "; image width: " + String(describing: entireScreen.size.width)); //1440 * 1080
              */
             
-            view.layer.insertSublayer(layer, above: imageLayer)
+            DispatchQueue.main.async() {
+                self.view.layer.insertSublayer(layer, above: self.imageLayer)
+            }
             
-            addCroppedImageToTextImages(sourceImage: entireScreen, boundingBox: layer.frame)
+            //addCroppedImageToTextImages(sourceImage: entireScreen, boundingBox: layer.frame, completion_handler: completion_handler)
+            
+            //3. Save cropped images to textImages
+            let scale : CGFloat = entireScreen.size.height/view.frame.size.height //Scale (=1440/736=810/414~=1.956)
+            
+            let imageCropX = layer.frame.origin.x * scale + 135.0;
+            let imageCropY = layer.frame.origin.y * scale;
+            let imageCropWidth : CGFloat = layer.frame.width * scale;
+            let imageCropHeight : CGFloat = layer.frame.height * scale;
+            
+            let croppingBox : CGRect = CGRect(x: imageCropX, y: imageCropY, width:imageCropWidth, height: imageCropHeight)
+            
+            let pct = 0.2 as CGFloat
+            let expandedCroppingBox = croppingBox.insetBy(dx: -croppingBox.width*pct/2, dy: -croppingBox.height*pct/2)
+            
+            if let imageRef = entireScreen.cgImage!.cropping(to: expandedCroppingBox) { //if the cropped image is within bound
+                let croppedImage = UIImage(cgImage: imageRef, scale: entireScreen.scale, orientation: entireScreen.imageOrientation)
+                textImages.append(croppedImage)
+                
+                //4. Recognize text
+                if (recognition_speed_controller % 10 == 0){
+                    tesseract?.image = croppedImage.g8_blackAndWhite()
+                    tesseract?.recognize()
+                    if var text = tesseract?.recognizedText {
+                        text = text.trimmingCharacters(in: CharacterSet.newlines)
+                        print(text)
+                    }
+                }
+                
+                completion_handler()
+            }
         }
         
     }
     
     //ADDED: add cropped images to text images
-    func addCroppedImageToTextImages(sourceImage image: UIImage, boundingBox: CGRect) {
+    /*func addCroppedImageToTextImages(sourceImage image: UIImage, boundingBox: CGRect, completion_handler: @escaping (()->())) {
         
         //DEBUG
         //print("boundingBox: " + String(describing: boundingBox));
@@ -184,13 +221,15 @@ class ViewController: UIViewController {
             let croppedImage = UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
             
             //Recognize text from the image
-            let result_text = performImageRecognition(croppedImage)
-            print(result_text)
+            //let result_text = performImageRecognition(croppedImage)
+            //print(result_text)
             
             textImages.append(croppedImage)
+            
+            completion_handler()
         }
         
-    }
+    }*/
     
     //Helper method for image rotation
     func imageRotatedBy90Degrees(oldImage: UIImage, deg degrees: CGFloat) -> UIImage {
@@ -215,7 +254,7 @@ class ViewController: UIViewController {
     }
     
     // Tesseract Image Recognition
-    func performImageRecognition(_ image: UIImage) -> String {
+    /*func performImageRecognition(_ image: UIImage) -> String {
         var result_text:String = ""
         //Initialize a new G8Tesseract object with the English and French data.
         if let tesseract = G8Tesseract(language: "eng+fra") {
@@ -231,7 +270,7 @@ class ViewController: UIViewController {
             result_text = tesseract.recognizedText
         }
         return result_text
-    }
+    }*/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -264,6 +303,7 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                     detectAndDisplayText(forImage: rotatedImage)
                 }
             }
+            recognition_speed_controller = recognition_speed_controller + 1
             
             CVPixelBufferUnlockBaseAddress(pixelBuffer, .readOnly)
         }

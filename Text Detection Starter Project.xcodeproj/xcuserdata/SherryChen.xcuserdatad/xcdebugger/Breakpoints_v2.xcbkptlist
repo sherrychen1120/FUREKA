@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Text Detection Starter Project/ViewController.swift"
-            timestampString = "548444041.402377"
+            timestampString = "548836032.400139"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "startLiveVideo()"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Text Detection Starter Project/ViewController.swift"
-            timestampString = "548444041.402602"
+            timestampString = "548836032.400383"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "addCroppedImageToTextImages(sourceImage:boundingBox:)"
-            landmarkType = "7">
+            startingLineNumber = "230"
+            endingLineNumber = "230"
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,27 +42,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Text Detection Starter Project/ViewController.swift"
-            timestampString = "548444041.402823"
+            timestampString = "548836032.400622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
-            landmarkName = "addCroppedImageToTextImages(sourceImage:boundingBox:)"
-            landmarkType = "7">
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Text Detection Starter Project/ViewController.swift"
-            timestampString = "548444041.403044"
+            timestampString = "548836032.400852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "detectAndDisplayText(forImage:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,13 +74,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Text Detection Starter Project/ViewController.swift"
-            timestampString = "548444041.4032789"
+            timestampString = "548836032.4010839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "detectAndDisplayText(forImage:)"
-            landmarkType = "7">
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -90,28 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Text Detection Starter Project/ViewController.swift"
-            timestampString = "548444041.403483"
+            timestampString = "548836032.40142"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "addCroppedImageToTextImages(sourceImage:boundingBox:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Text Detection Starter Project/ViewController.swift"
-            timestampString = "548444041.403685"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "highlightandSaveWord(box:entireScreen:)"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "highlightandRecognizeWord(box:entireScreen:completion_handler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
