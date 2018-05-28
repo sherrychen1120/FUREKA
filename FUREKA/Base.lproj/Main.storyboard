@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Wt7-sb-a1n">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="X7h-xO-YJy">
+            <objects>
+                <navigationController id="Wt7-sb-a1n" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BqZ-9d-34w">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="a0d-KH-pIi" kind="relationship" relationship="rootViewController" id="NCz-or-S68"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9hi-13-46N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="300" y="115"/>
+        </scene>
+        <!--Share Photo View Controller-->
+        <scene sceneID="iwv-sR-UJB">
+            <objects>
+                <viewController id="muE-zD-A0I" customClass="SharePhotoViewController" customModule="FUREKA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vva-R4-6xs"/>
+                        <viewControllerLayoutGuide type="bottom" id="hAr-N1-8dv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UoC-1s-DME">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Share Photo VC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRB-WB-zRI">
+                                <rect key="frame" x="127" y="196" width="121" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yMi-E8-9ID">
+                        <barButtonItem key="backBarButtonItem" title=" " id="qmo-cv-Q8V"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="51r-xy-L3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1918" y="887"/>
+        </scene>
+        <!--Discover Table View Controller-->
+        <scene sceneID="Mod-aH-DT6">
+            <objects>
+                <tableViewController id="a0d-KH-pIi" customClass="DiscoverTableViewController" customModule="FUREKA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vJE-IM-6bd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="buttonsCell" rowHeight="80" id="mMx-gk-35H" customClass="ButtonsTableViewCell" customModule="FUREKA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mMx-gk-35H" id="a9g-Kg-BA6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nFZ-gO-EqA">
+                                            <rect key="frame" x="51" y="25" width="58" height="30"/>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AQi-a7-0PV">
+                                            <rect key="frame" x="240" y="25" width="84" height="30"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xef-Hj-Qku">
+                                                    <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
+                                                    <state key="normal" title="Share Photo"/>
+                                                    <connections>
+                                                        <action selector="SharePhotoButtonPressed:" destination="mMx-gk-35H" eventType="touchUpInside" id="mep-eJ-hVb"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfp-WE-2An">
+                                            <rect key="frame" x="51" y="25" width="58" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="ARMenu"/>
+                                            <connections>
+                                                <action selector="ARMenuButtonPressed:" destination="mMx-gk-35H" eventType="touchUpInside" id="b4n-MQ-jAB"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="AQi-a7-0PV" firstAttribute="centerY" secondItem="a9g-Kg-BA6" secondAttribute="centerY" id="Uw4-2T-xxo"/>
+                                        <constraint firstItem="nFZ-gO-EqA" firstAttribute="centerY" secondItem="a9g-Kg-BA6" secondAttribute="centerY" id="k5C-5U-6zL"/>
+                                        <constraint firstItem="nFZ-gO-EqA" firstAttribute="leading" secondItem="a9g-Kg-BA6" secondAttribute="leadingMargin" constant="35" id="krA-Jy-mVK"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="AQi-a7-0PV" secondAttribute="trailing" constant="35" id="sqI-4m-1aU"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ARMenuButton" destination="rfp-WE-2An" id="XEs-ZC-tmM"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="a0d-KH-pIi" id="kue-pT-xyD"/>
+                            <outlet property="delegate" destination="a0d-KH-pIi" id="jV8-76-cNo"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Hzr-XU-dMC"/>
+                    <connections>
+                        <segue destination="sUm-rZ-Uzf" kind="show" identifier="DiscoverToARMenu" id="C1p-2C-cgz"/>
+                        <segue destination="muE-zD-A0I" kind="show" identifier="DiscoverToSharePhoto" id="0I0-Gi-lxr"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f6g-GJ-y5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1061.5999999999999" y="114.69265367316342"/>
+        </scene>
+        <!--Restaurant Page Table View Controller-->
+        <scene sceneID="pF8-9i-bAC">
+            <objects>
+                <tableViewController id="Pdl-og-rjv" customClass="RestaurantPageTableViewController" customModule="FUREKA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eDv-ba-gJW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="11e-Fk-JjG">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="11e-Fk-JjG" id="Eny-Wi-dIA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Pdl-og-rjv" id="0A8-Ig-wlC"/>
+                            <outlet property="delegate" destination="Pdl-og-rjv" id="RUM-af-pPe"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TM8-Dx-sdb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1916" y="-589"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="xZ7-1P-gne">
+            <objects>
+                <viewController id="sUm-rZ-Uzf" customClass="ARMenuViewController" customModule="FUREKA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g5A-07-oaV"/>
+                        <viewControllerLayoutGuide type="bottom" id="hkc-3r-lWU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uNu-gH-O9F">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click on dish names to learn more." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBQ-IE-Clf">
+                                <rect key="frame" x="22" y="69" width="331" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXY-MG-RqZ">
+                                <rect key="frame" x="27.5" y="597" width="150" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fSp-lH-Fdg"/>
+                                </constraints>
+                                <state key="normal" title="Restaurant Page"/>
+                                <connections>
+                                    <action selector="RestaurantPageButtonPressed:" destination="sUm-rZ-Uzf" eventType="touchUpInside" id="c8k-Rg-jFn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKI-3L-VJJ">
+                                <rect key="frame" x="197.5" y="597" width="150" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="VYq-aY-dmM"/>
+                                </constraints>
+                                <state key="normal" title="Share Photo"/>
+                                <connections>
+                                    <action selector="SharePhotoButtonPressed:" destination="sUm-rZ-Uzf" eventType="touchUpInside" id="YY9-fw-kxi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="tBQ-IE-Clf" secondAttribute="trailing" constant="6" id="CJj-ns-PPP"/>
+                            <constraint firstItem="hkc-3r-lWU" firstAttribute="top" secondItem="MKI-3L-VJJ" secondAttribute="bottom" constant="20" id="Dxw-dV-Ltt"/>
+                            <constraint firstItem="hkc-3r-lWU" firstAttribute="top" secondItem="DXY-MG-RqZ" secondAttribute="bottom" constant="20" id="Iya-ac-baT"/>
+                            <constraint firstItem="tBQ-IE-Clf" firstAttribute="top" secondItem="g5A-07-oaV" secondAttribute="bottom" constant="5" id="TZi-j5-3nc"/>
+                            <constraint firstItem="tBQ-IE-Clf" firstAttribute="leading" secondItem="uNu-gH-O9F" secondAttribute="leadingMargin" constant="6" id="gMx-dB-TqL"/>
+                            <constraint firstItem="DXY-MG-RqZ" firstAttribute="trailing" secondItem="uNu-gH-O9F" secondAttribute="centerX" constant="-10" id="s5a-6D-Icr"/>
+                            <constraint firstItem="MKI-3L-VJJ" firstAttribute="width" secondItem="uNu-gH-O9F" secondAttribute="width" multiplier="0.4" id="vhQ-cw-jZc"/>
+                            <constraint firstItem="MKI-3L-VJJ" firstAttribute="leading" secondItem="uNu-gH-O9F" secondAttribute="centerX" constant="10" id="xqm-NA-uen"/>
+                            <constraint firstItem="DXY-MG-RqZ" firstAttribute="width" secondItem="uNu-gH-O9F" secondAttribute="width" multiplier="0.4" id="yjw-kS-MkC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="PXc-39-tmk">
+                        <barButtonItem key="backBarButtonItem" title=" " id="fdw-O3-Vrz"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="MenuExplanationLabel" destination="tBQ-IE-Clf" id="mfe-Po-seH"/>
+                        <outlet property="RestaurantPageButton" destination="DXY-MG-RqZ" id="heh-bO-RcM"/>
+                        <outlet property="SharePhotoButton" destination="MKI-3L-VJJ" id="fIr-rb-mcj"/>
+                        <segue destination="Pdl-og-rjv" kind="show" identifier="ARMenuToRestaurantPage" id="4W7-bQ-3Ur"/>
+                        <segue destination="muE-zD-A0I" kind="show" identifier="ARMenuToSharePhoto" id="NPr-mr-WkI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KwP-w7-o8p" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1917.5999999999999" y="114.69265367316342"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="NPr-mr-WkI"/>
+    </inferredMetricsTieBreakers>
+</document>
