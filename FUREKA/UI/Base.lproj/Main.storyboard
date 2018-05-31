@@ -190,6 +190,16 @@
                                     <action selector="SharePhotoButtonPressed:" destination="sUm-rZ-Uzf" eventType="touchUpInside" id="YY9-fw-kxi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIZ-yx-wFu">
+                                <rect key="frame" x="133" y="495" width="109" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Show Dish Card">
+                                    <color key="titleColor" red="1" green="0.94882203629999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="ShowDishCardButtonPressed:" destination="sUm-rZ-Uzf" eventType="touchUpInside" id="RDb-Yk-n7z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -213,11 +223,85 @@
                         <outlet property="SharePhotoButton" destination="MKI-3L-VJJ" id="fIr-rb-mcj"/>
                         <segue destination="Pdl-og-rjv" kind="show" identifier="ARMenuToRestaurantPage" id="4W7-bQ-3Ur"/>
                         <segue destination="muE-zD-A0I" kind="show" identifier="ARMenuToSharePhoto" id="NPr-mr-WkI"/>
+                        <segue destination="EeD-GN-uj2" kind="presentation" identifier="ARMenuToDishCards" modalPresentationStyle="overFullScreen" id="LNN-8V-fhp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KwP-w7-o8p" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1917.5999999999999" y="114.69265367316342"/>
+        </scene>
+        <!--Dish Cards View Controller-->
+        <scene sceneID="mdY-jX-lnF">
+            <objects>
+                <viewController id="EeD-GN-uj2" customClass="DishCardsViewController" customModule="FUREKA" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KtS-lM-nwY"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Kx-0h-llM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kkp-KI-BfI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vZc-my-Qca">
+                                <rect key="frame" x="0.0" y="100" width="375" height="467"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qck-az-Ql5">
+                                    <size key="itemSize" width="378" height="467"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DishCardCell" id="LLJ-Km-1DU" customClass="DishCardCollectionViewCell" customModule="FUREKA" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="378" height="467"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="378" height="467"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zby-av-6L6">
+                                                    <rect key="frame" x="66" y="0.0" width="246" height="467"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="DishCardContent" destination="Zby-av-6L6" id="16n-xZ-hGV"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="EeD-GN-uj2" id="SlV-qI-znc"/>
+                                    <outlet property="delegate" destination="EeD-GN-uj2" id="qQZ-Yj-HUA"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQq-US-PwG">
+                                <rect key="frame" x="16" y="28" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="ExitDishCardsPressed:" destination="EeD-GN-uj2" eventType="touchUpInside" id="kYW-gi-9VF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vZc-my-Qca" firstAttribute="height" secondItem="Kkp-KI-BfI" secondAttribute="height" multiplier="0.7" id="KHe-lY-0Ff"/>
+                            <constraint firstItem="vZc-my-Qca" firstAttribute="leading" secondItem="Kkp-KI-BfI" secondAttribute="leading" id="NPD-Tm-Bft"/>
+                            <constraint firstItem="vZc-my-Qca" firstAttribute="centerY" secondItem="Kkp-KI-BfI" secondAttribute="centerY" id="YRU-vC-L8K"/>
+                            <constraint firstAttribute="trailing" secondItem="vZc-my-Qca" secondAttribute="trailing" id="bow-U4-k31"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="DishCardCollectionViewLayout" destination="Qck-az-Ql5" id="Qep-B7-ZfK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fpX-Bh-fV3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2824.8000000000002" y="114.69265367316342"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

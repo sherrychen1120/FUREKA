@@ -31,15 +31,7 @@ class ARMenuViewController: UIViewController {
     var displayedBoxes = 0
     
     override func viewWillAppear(_ animated: Bool) {
-        //If it's the first time initiating ARMenuVC, set up + start session.
-        //Else, just start session
-        if (first_time){
-            startLiveVideo()
-            print("viewWillAppear startLiveVideo")
-            first_time = false
-        } else {
-            session.startRunning()
-        }
+        configLiveVideo()
         
         //Set navigation bar title
         let textAttributes = [NSAttributedStringKey.foregroundColor: FUREKA_LightOrange]
@@ -72,6 +64,16 @@ class ARMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //If it's the first time initiating ARMenuVC, set up + start session.
+        //Else, just start session
+        /*if (first_time){
+            startLiveVideo()
+            print("viewDidLoad startLiveVideo")
+            first_time = false
+        } else {
+            session.startRunning()
+            print("viewDidLoad startRunningVideo")
+        }*/
         
         //Set up navigation bar title
         
@@ -103,6 +105,12 @@ class ARMenuViewController: UIViewController {
         session.stopRunning()
         self.performSegue(withIdentifier: "ARMenuToSharePhoto", sender: nil)
     }
+    
+    @IBAction func ShowDishCardButtonPressed(_ sender: Any) {
+        session.stopRunning()
+        self.performSegue(withIdentifier: "ARMenuToDishCards", sender: nil)
+    }
+    
     
     //MARK: text detection & recognition
     func startLiveVideo() {
@@ -357,11 +365,28 @@ class ARMenuViewController: UIViewController {
         return result_text
     }*/
     
-    //MARK: segues
+    //MARK: Navigation
+    //This function is called everytime ARMenuVC is loaded.
+    func configLiveVideo(){
+        //If it's the first time initiating ARMenuVC, set up + start session.
+        //Else, just start session
+        if (first_time){
+            startLiveVideo()
+            print("viewWillAppear startLiveVideo")
+            first_time = false
+        } else {
+            session.startRunning()
+            print("viewWillAppear startRunningVideo")
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //session.stopRunning()
-        //print("session stopped running")
         navigationItem.title = " "
+        //Pass on the current instance of ARMenuVC to DishCardsVC
+        if (segue.identifier == "ARMenuToDishCards") {
+            let DishCardsVC = segue.destination as! DishCardsViewController
+            DishCardsVC.instanceOfARMenuVC = self
+        }
     }
     
     override func didReceiveMemoryWarning() {

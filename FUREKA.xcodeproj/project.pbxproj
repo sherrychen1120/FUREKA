@@ -13,13 +13,14 @@
 		5609819820B08FE200226DE2 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5609819720B08FE200226DE2 /* TesseractOCR.framework */; };
 		5609819A20B08FF300226DE2 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5609819920B08FF200226DE2 /* CoreImage.framework */; };
 		5609819E20B7C04300226DE2 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 5609819D20B7C04300226DE2 /* tessdata */; };
-		560981A220B7C4C700226DE2 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560981A120B7C4C700226DE2 /* DiscoverViewController.swift */; };
 		560981A420B7D23A00226DE2 /* UIAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560981A320B7D23A00226DE2 /* UIAttributes.swift */; };
 		560981A620B9EB6700226DE2 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560981A520B9EB6700226DE2 /* UIHelper.swift */; };
 		560981A820B9F5A900226DE2 /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560981A720B9F5A900226DE2 /* DiscoverTableViewController.swift */; };
 		560981AA20B9FF1700226DE2 /* ButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560981A920B9FF1700226DE2 /* ButtonsTableViewCell.swift */; };
 		560981AC20BB923900226DE2 /* SharePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560981AB20BB923900226DE2 /* SharePhotoViewController.swift */; };
 		560981AE20BBBB3B00226DE2 /* RestaurantPageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560981AD20BBBB3B00226DE2 /* RestaurantPageTableViewController.swift */; };
+		560981B520BE71DC00226DE2 /* DishCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560981B420BE71DC00226DE2 /* DishCardsViewController.swift */; };
+		560981B720BE733F00226DE2 /* DishCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560981B620BE733F00226DE2 /* DishCardCollectionViewCell.swift */; };
 		8B0D6AFF1EFA582B00544F3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D6AFE1EFA582B00544F3D /* AppDelegate.swift */; };
 		8B0D6B011EFA582B00544F3D /* ARMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D6B001EFA582B00544F3D /* ARMenuViewController.swift */; };
 		8B0D6B041EFA582B00544F3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B0D6B021EFA582B00544F3D /* Main.storyboard */; };
@@ -34,13 +35,14 @@
 		5609819720B08FE200226DE2 /* TesseractOCR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5609819920B08FF200226DE2 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		5609819D20B7C04300226DE2 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = SOURCE_ROOT; };
-		560981A120B7C4C700226DE2 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		560981A320B7D23A00226DE2 /* UIAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAttributes.swift; sourceTree = "<group>"; };
 		560981A520B9EB6700226DE2 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		560981A720B9F5A900226DE2 /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		560981A920B9FF1700226DE2 /* ButtonsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsTableViewCell.swift; sourceTree = "<group>"; };
 		560981AB20BB923900226DE2 /* SharePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePhotoViewController.swift; sourceTree = "<group>"; };
 		560981AD20BBBB3B00226DE2 /* RestaurantPageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPageTableViewController.swift; sourceTree = "<group>"; };
+		560981B420BE71DC00226DE2 /* DishCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCardsViewController.swift; sourceTree = "<group>"; };
+		560981B620BE733F00226DE2 /* DishCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		830A3F8DD1F91328A48D84E6 /* Pods-Text Detection Starter Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text Detection Starter Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Text Detection Starter Project/Pods-Text Detection Starter Project.debug.xcconfig"; sourceTree = "<group>"; };
 		8B0D6AFB1EFA582B00544F3D /* FUREKA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FUREKA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B0D6AFE1EFA582B00544F3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		560981B120BE710300226DE2 /* Discover Page */ = {
+			isa = PBXGroup;
+			children = (
+				560981A720B9F5A900226DE2 /* DiscoverTableViewController.swift */,
+				560981A920B9FF1700226DE2 /* ButtonsTableViewCell.swift */,
+			);
+			path = "Discover Page";
+			sourceTree = "<group>";
+		};
+		560981B220BE712000226DE2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8B0D6AFE1EFA582B00544F3D /* AppDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		560981B320BE715200226DE2 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8B0D6B021EFA582B00544F3D /* Main.storyboard */,
+				8B0D6B071EFA582B00544F3D /* LaunchScreen.storyboard */,
+				560981A320B7D23A00226DE2 /* UIAttributes.swift */,
+				560981A520B9EB6700226DE2 /* UIHelper.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		8B0D6AF21EFA582B00544F3D = {
 			isa = PBXGroup;
 			children = (
@@ -101,20 +131,17 @@
 		8B0D6AFD1EFA582B00544F3D /* FUREKA */ = {
 			isa = PBXGroup;
 			children = (
-				8B0D6AFE1EFA582B00544F3D /* AppDelegate.swift */,
-				8B0D6B001EFA582B00544F3D /* ARMenuViewController.swift */,
-				8B0D6B021EFA582B00544F3D /* Main.storyboard */,
+				560981B320BE715200226DE2 /* UI */,
+				560981B220BE712000226DE2 /* Supporting Files */,
+				560981B120BE710300226DE2 /* Discover Page */,
 				8B0D6B051EFA582B00544F3D /* Assets.xcassets */,
 				5609819D20B7C04300226DE2 /* tessdata */,
-				8B0D6B071EFA582B00544F3D /* LaunchScreen.storyboard */,
-				8B0D6B0A1EFA582C00544F3D /* Info.plist */,
-				560981A120B7C4C700226DE2 /* DiscoverViewController.swift */,
-				560981A320B7D23A00226DE2 /* UIAttributes.swift */,
-				560981A520B9EB6700226DE2 /* UIHelper.swift */,
-				560981A720B9F5A900226DE2 /* DiscoverTableViewController.swift */,
-				560981A920B9FF1700226DE2 /* ButtonsTableViewCell.swift */,
-				560981AB20BB923900226DE2 /* SharePhotoViewController.swift */,
+				8B0D6B001EFA582B00544F3D /* ARMenuViewController.swift */,
 				560981AD20BBBB3B00226DE2 /* RestaurantPageTableViewController.swift */,
+				560981AB20BB923900226DE2 /* SharePhotoViewController.swift */,
+				560981B420BE71DC00226DE2 /* DishCardsViewController.swift */,
+				560981B620BE733F00226DE2 /* DishCardCollectionViewCell.swift */,
+				8B0D6B0A1EFA582C00544F3D /* Info.plist */,
 			);
 			path = FUREKA;
 			sourceTree = "<group>";
@@ -257,9 +284,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				560981A220B7C4C700226DE2 /* DiscoverViewController.swift in Sources */,
+				560981B720BE733F00226DE2 /* DishCardCollectionViewCell.swift in Sources */,
 				8B0D6B011EFA582B00544F3D /* ARMenuViewController.swift in Sources */,
 				560981A420B7D23A00226DE2 /* UIAttributes.swift in Sources */,
+				560981B520BE71DC00226DE2 /* DishCardsViewController.swift in Sources */,
 				560981AA20B9FF1700226DE2 /* ButtonsTableViewCell.swift in Sources */,
 				560981AE20BBBB3B00226DE2 /* RestaurantPageTableViewController.swift in Sources */,
 				560981A620B9EB6700226DE2 /* UIHelper.swift in Sources */,
